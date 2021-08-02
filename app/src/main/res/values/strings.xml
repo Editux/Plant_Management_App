@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Plant Management</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_garden">Garden</string>
+    <string name="nav_settings">Settings</string>
+    <string name="fragment_garden">Your garden</string>
+    <string name="edit_name">Plant name</string>
+    <string name="edit_type">Type</string>
+    <string name="save_button">Save</string>
+</resources>
