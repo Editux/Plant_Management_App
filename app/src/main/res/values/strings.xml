@@ -7,4 +7,10 @@
     <string name="edit_name">Plant name</string>
     <string name="edit_type">Type</string>
     <string name="save_button">Save</string>
+    <string name="desc">Desc</string>
+    <string name="title">Title</string>
+    <string name="plant_type">Type :</string>
+    <string name="plant_water">Watering:</string>
+    <string name="plant_warnings"> Notes:</string>
+
 </resources>
