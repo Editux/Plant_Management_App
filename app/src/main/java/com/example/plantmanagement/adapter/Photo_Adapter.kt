@@ -21,6 +21,7 @@ class Photo_Adapter(var context: Context?) : RecyclerView.Adapter<Photo_Adapter.
 
         internal fun setDataList(dataList: List<Plant>) {
             this.dataList = dataList
+            notifyDataSetChanged()
         }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
