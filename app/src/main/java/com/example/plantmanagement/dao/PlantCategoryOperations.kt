@@ -8,6 +8,6 @@ import com.example.plantmanagement.model.Plant_Category
 
 @Dao
 interface PlantCategoryOperations {
-    @Query("SELECT * FROM Plant_Category")
-    fun getAll(): LiveData<List<Plant_Category>>
+  //  @Query("SELECT * FROM Plant_Category")
+    //fun getAll(): LiveData<List<Plant_Category>>
 }

@@ -6,13 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.plantmanagement.R
 import com.example.plantmanagement.activity.PlantDetails
 import com.example.plantmanagement.model.Plant
+import java.security.AccessController.getContext
 
 
 class Photo_Adapter(var context: Context?) : RecyclerView.Adapter<Photo_Adapter.ViewHolder>() {
@@ -30,17 +30,19 @@ class Photo_Adapter(var context: Context?) : RecyclerView.Adapter<Photo_Adapter.
 
 
         holder.title.text = data.name
-        holder.desc.text = data.type.toString()
+        holder.desc.text = data.type
 
 
-        holder.image.setImageResource(data.image)
+        //holder.image.setImageResource(data.image) // Error message indicates that this line has error
+
+
         holder.relativeLayout.setOnClickListener { view -> //Toast.makeText(view.getContext(),"click on item: "+model.getTitle(),Toast.LENGTH_LONG).show();
             val intent = Intent(view.context, PlantDetails::class.java)
             intent.putExtra("plant_name", data.name)
-            intent.putExtra("plant_image",data.image)
-            intent.putExtra("plant_type", data.type.type)
-            intent.putExtra("plant_water", data.type.water_time)
-            intent.putExtra("plant_details", data.type.details)
+            intent.putExtra("plant_image", data.image)
+            intent.putExtra("plant_type", data.type)
+            intent.putExtra("plant_water", data.water_time)
+            intent.putExtra("plant_details", data.details)
             view.context.startActivity(intent)
     }
 
@@ -67,7 +69,11 @@ class Photo_Adapter(var context: Context?) : RecyclerView.Adapter<Photo_Adapter.
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Photo_Adapter.ViewHolder {
 
             // Inflate the custom layout
-            var view = LayoutInflater.from(parent.context).inflate(R.layout.photo_layout, parent, false)
+            var view = LayoutInflater.from(parent.context).inflate(
+                    R.layout.photo_layout,
+                    parent,
+                    false
+            )
             return ViewHolder(view)
         }
 
