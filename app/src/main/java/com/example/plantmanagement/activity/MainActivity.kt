@@ -2,6 +2,7 @@ package com.example.plantmanagement.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val navHostFragment = supportFragmentManager
                 .findFragmentById(R.id.FragmentContainer) as NavHostFragment
         val navView: BottomNavigationView = findViewById(R.id.bottom_navigation)

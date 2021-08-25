@@ -5,6 +5,7 @@ import androidx.lifecycle.*
 import com.example.plantmanagement.model.Plant
 import com.example.plantmanagement.repository.PlantRepository
 import kotlinx.coroutines.Dispatchers
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 
@@ -20,6 +21,17 @@ class PlantViewModel(
             .flowOn(Dispatchers.IO)
             .asLiveData()
 
+ fun insertPlant(plant:Plant) =viewModelScope.launch {
+      repository.insertPlant(plant)
+ }
+
+    fun updatePlant(plant:Plant)= viewModelScope.launch {
+        repository.updatePlant(plant)
+    }
+
+    fun deletePlant(id:Long) =viewModelScope.launch {
+        repository.deletePlantById(id)
+    }
 }
 
 

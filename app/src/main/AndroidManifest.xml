@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PlantManagement">
-        <activity android:name=".activity.PlantDetails"></activity>
+        <activity android:name=".activity.Edit_Plant"></activity>
+        <activity android:name=".activity.PlantDetails" />
         <activity android:name=".activity.Edit_Form" />
         <activity android:name=".activity.Splash_Activity">
             <intent-filter>

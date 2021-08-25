@@ -5,10 +5,11 @@
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.Edit_Form" >
-<!--TODO: Add scrollable thing-->
+    tools:context=".activity.Edit_Form">
+    <!--TODO: Add scrollable thing-->
+
     <EditText
-        android:id="@+id/plant_name"
+        android:id="@+id/plant_edit_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:autofillHints=""
@@ -22,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
-        android:id="@+id/spinner3"
+        android:id="@+id/edit_spinner"
         android:layout_width="match_parent"
         android:layout_height="50dp"
 
@@ -30,6 +31,7 @@
         android:layout_marginLeft="50dp"
         android:layout_marginEnd="50dp"
         android:layout_marginRight="50dp"
+        android:layout_marginBottom="228dp"
         android:dropDownWidth="match_parent"
         android:dropDownHeight="100dp"
         android:prompt="@string/edit_type"
@@ -37,45 +39,49 @@
         android:theme="@style/ThemeOverlay.AppCompat.Light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/plant_name"
         app:layout_constraintVertical_bias="0.297" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/image_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="134dp"
         android:layout_marginLeft="134dp"
+        android:layout_marginTop="84dp"
         android:layout_marginEnd="149dp"
         android:layout_marginRight="149dp"
         android:layout_marginBottom="37dp"
-        app:layout_constraintBottom_toTopOf="@+id/plant_name"
+        app:layout_constraintBottom_toTopOf="@+id/edit_Loadbutton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
-        android:id="@+id/Loadbutton"
+        android:id="@+id/edit_Loadbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="149dp"
-        android:layout_marginLeft="149dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="170dp"
-        android:layout_marginRight="170dp"
-        android:layout_marginBottom="53dp"
+        android:layout_marginStart="141dp"
+        android:layout_marginLeft="141dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="141dp"
+        android:layout_marginRight="141dp"
+        android:layout_marginBottom="55dp"
         android:text="@string/load_button"
         android:textColor="@color/cardview_light_background"
-        app:layout_constraintBottom_toTopOf="@+id/plant_name"
+        app:layout_constraintBottom_toTopOf="@+id/plant_edit_name"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/image_edit"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/saveButton"
+        android:id="@+id/edit_saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="152dp"

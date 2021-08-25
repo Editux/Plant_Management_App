@@ -10,13 +10,12 @@ interface PlantOperations {
     fun getAll(): Flow<List<Plant>>
 
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg plant: Plant?)
     @Insert
     fun insertPlant(plant: Plant)
+    @Query("DELETE  FROM Plant WHERE plant_id = :id")
+    fun delete(id: Long)
 
-    @Delete
-    fun delete(plant: Plant)
-
-    @Update
+   @Update
     fun updatePlant(plant: Plant)}

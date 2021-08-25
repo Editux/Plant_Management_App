@@ -13,6 +13,15 @@ class PlantRepository(application:Application){
     private val plantDAO = PlantDatabase.getDatabase(application).plantDao()
 
     fun getAllPlants(): Flow<List<Plant>> = plantDAO.getAll()
+     fun insertPlant(plant: Plant){
+         return plantDAO.insertPlant(plant)
+     }
+     fun updatePlant(plant: Plant){
+         return plantDAO.updatePlant(plant)
+     }
+     fun deletePlantById(id: Long){
+         return plantDAO.delete(id)
+     }
 
 
 }

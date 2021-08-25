@@ -1,6 +1,7 @@
 package com.example.plantmanagement.database
 
 import android.content.Context
+import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -31,19 +32,20 @@ abstract class PlantDatabase:RoomDatabase() {
                 INSTANCE = Room.databaseBuilder(
                     context.applicationContext,
                     PlantDatabase::class.java, DB_NAME
-                ) //.createFromAsset("database/plant.sql")
+                )   .createFromAsset("database/plant.sql")
                     .fallbackToDestructiveMigration()
-                    .addCallback(object : Callback() {
-                        override fun onCreate(db: SupportSQLiteDatabase) {
-                            super.onCreate(db)
-                            Executors.newSingleThreadScheduledExecutor()
-                                .execute(Runnable {
-                                    INSTANCE?.plantDao()!!
-                                        .insertAll(Plant(1,"Aloe", R.drawable.plantlogo,"Aloe","1 per week","Dangerous for pets"))
-                                })
-//
-                        }
-                    })
+                    .allowMainThreadQueries()
+                    //.addCallback(object : Callback() {
+                       // override fun onCreate(db: SupportSQLiteDatabase) {
+                           // super.onCreate(db)
+                           // Executors.newSingleThreadScheduledExecutor()
+                            //   .execute(Runnable {
+                                 //   INSTANCE?.plantDao()!!
+                                       //.insertAll(Plant(1,"Aloe", "content://com.google.android.apps.photos.contentprovider/-1/1/content%3A%2F%2Fmedia%2Fexternal%2Fimages%2Fmedia%2F74/ORIGINAL/NONE/80597715","Aloe","1 per week","Dangerous for pets"))
+                               // })
+
+                       // }
+                   // })
                     .build()
             }
 

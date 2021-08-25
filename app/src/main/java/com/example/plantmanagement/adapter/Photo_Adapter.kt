@@ -2,6 +2,8 @@ package com.example.plantmanagement.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap.CompressFormat
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.plantmanagement.R
 import com.example.plantmanagement.activity.PlantDetails
 import com.example.plantmanagement.model.Plant
-import java.security.AccessController.getContext
+import java.io.ByteArrayOutputStream
 
 
 class Photo_Adapter(var context: Context?) : RecyclerView.Adapter<Photo_Adapter.ViewHolder>() {
@@ -32,12 +34,15 @@ class Photo_Adapter(var context: Context?) : RecyclerView.Adapter<Photo_Adapter.
         holder.title.text = data.name
         holder.desc.text = data.type
 
+        val bitmap = BitmapFactory.decodeByteArray(data.image,0,data.image.size)
 
-        //holder.image.setImageResource(data.image) // Error message indicates that this line has error
+
+        holder.image.setImageBitmap(bitmap)
 
 
         holder.relativeLayout.setOnClickListener { view -> //Toast.makeText(view.getContext(),"click on item: "+model.getTitle(),Toast.LENGTH_LONG).show();
             val intent = Intent(view.context, PlantDetails::class.java)
+            intent.putExtra("plant_id",data.plant_id)
             intent.putExtra("plant_name", data.name)
             intent.putExtra("plant_image", data.image)
             intent.putExtra("plant_type", data.type)
