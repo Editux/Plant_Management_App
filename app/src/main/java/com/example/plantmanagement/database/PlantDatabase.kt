@@ -35,17 +35,17 @@ abstract class PlantDatabase:RoomDatabase() {
                 )   .createFromAsset("database/plant.sql")
                     .fallbackToDestructiveMigration()
                     .allowMainThreadQueries()
-                    //.addCallback(object : Callback() {
-                       // override fun onCreate(db: SupportSQLiteDatabase) {
-                           // super.onCreate(db)
-                           // Executors.newSingleThreadScheduledExecutor()
-                            //   .execute(Runnable {
-                                 //   INSTANCE?.plantDao()!!
-                                       //.insertAll(Plant(1,"Aloe", "content://com.google.android.apps.photos.contentprovider/-1/1/content%3A%2F%2Fmedia%2Fexternal%2Fimages%2Fmedia%2F74/ORIGINAL/NONE/80597715","Aloe","1 per week","Dangerous for pets"))
-                               // })
+                    .addCallback(object : Callback() {
+                        override fun onCreate(db: SupportSQLiteDatabase) {
+                            super.onCreate(db)
+                            Executors.newSingleThreadScheduledExecutor()
+                               .execute(Runnable {
+                                    INSTANCE?.plantDao()!!
+                                            .getAll()
+                                })
 
-                       // }
-                   // })
+                        }
+                    })
                     .build()
             }
 

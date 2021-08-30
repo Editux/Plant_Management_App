@@ -12,7 +12,6 @@ import android.view.View
 import android.widget.*
 import androidx.lifecycle.ViewModelProvider
 import com.example.plantmanagement.R
-import com.example.plantmanagement.database.PlantDatabase
 import com.example.plantmanagement.model.Plant
 import com.example.plantmanagement.model.Plant_Category
 import com.example.plantmanagement.viewmodel.PlantViewModel

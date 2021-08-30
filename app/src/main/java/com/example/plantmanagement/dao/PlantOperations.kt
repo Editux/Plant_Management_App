@@ -9,7 +9,6 @@ interface PlantOperations {
     @Query("SELECT * FROM Plant")
     fun getAll(): Flow<List<Plant>>
 
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg plant: Plant?)
     @Insert

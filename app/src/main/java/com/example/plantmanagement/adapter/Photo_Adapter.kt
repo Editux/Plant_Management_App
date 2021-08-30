@@ -34,7 +34,7 @@ class Photo_Adapter(var context: Context?) : RecyclerView.Adapter<Photo_Adapter.
         holder.title.text = data.name
         holder.desc.text = data.type
 
-        val bitmap = BitmapFactory.decodeByteArray(data.image,0,data.image.size)
+        val bitmap = BitmapFactory.decodeByteArray(data.image,0, data.image?.size!!)
 
 
         holder.image.setImageBitmap(bitmap)
